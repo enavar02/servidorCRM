@@ -3,6 +3,7 @@ const typeDefs = require('./db/schema');
 const resolvers =require('./db/resolvers');
 const mysqlConnection = require('./config/db');
 const jwt = require('jsonwebtoken');
+require('dotenv').config({path: 'variables.env'});
 
 mysqlConnection.query('SELECT * FROM usuarios',(err, rows, fields)=>{
     if(!err){
@@ -22,7 +23,7 @@ const server = new ApolloServer({
         const token = req.headers['authorization'] || '';
         if(token){
             try {
-                const usuario = jwt.verify(token.replace('Bearer ', ''), 'palabraSecreta' );
+                const usuario = jwt.verify(token.replace('Bearer ', ''), process.env.SECRETA );
                 //console.log(usuario);
                 return {
                     usuario
