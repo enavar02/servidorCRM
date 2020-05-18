@@ -1,0 +1,135 @@
+******NUEVO CLIENTE********
+mutation nuevoCliente($input: ClienteInput){
+  nuevoCliente(input:$input){
+    id
+    nombre
+    apellido
+    email
+    empresa
+    vendedor
+    telefono
+    creado
+  
+  }
+}
+
+QUERY VARIABLES
+{
+  "input": {
+    "nombre": "Edgar",
+    "apellido": "Navarro",
+    "empresa": "Solucion TI",
+    "email": "edgar@solucion3.com",
+    "telefono": "982346730"
+  }
+}
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+******ACTUALIZAR CLIENTE********
+mutation actualizarCliente($id: ID!, $input: ClienteInput){
+  actualizarCliente(id:$id, input:$input){
+    id
+    nombre
+    apellido
+    empresa
+    email
+    telefono
+    vendedor
+    creado
+  }
+}
+
+QUERY VARIABLES
+{
+  "id": 2,
+  "input": {
+    "nombre": "Carlos",
+    "apellido": "Martinez",
+    "empresa": "empresa",
+    "email": "correoEmpresa@correo.com",
+    "telefono": "12345678"
+  }
+}
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+
+******ELIMINAR CLIENTE********
+mutation eliminarCliente($id: ID!){
+  eliminarCliente(id:$id)
+}
+
+QUERY VARIABLES
+{
+  "id": 4
+}
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+
+******OBTENER CLIENTES********
+query obtenerClientes{
+  obtenerClientes{
+    id
+    nombre
+    apellido
+    empresa
+    telefono
+    email
+    vendedor
+    creado
+  }
+}
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+******OBTENER CLIENTES VENDEDOR********
+query obtenerClientesVendedor{
+  obtenerClientesVendedor{
+    id
+    nombre
+    apellido
+    empresa
+    telefono
+    email
+    vendedor
+    creado
+  }
+}
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+******OBTENER CLIENTE********
+query obtenerCliente($id: ID!){
+  obtenerCliente(id:$id){
+    id
+    nombre
+    apellido
+    empresa
+    email
+    telefono
+    vendedor
+    creado
+  }
+}
+
+QUERY VARIABLES
+{
+  "id": 1
+}
+
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}

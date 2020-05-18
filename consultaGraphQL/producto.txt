@@ -1,0 +1,76 @@
+******OBTENER PRODUCTOS********
+query {
+  obtenerProductos{
+    id
+    nombre
+    existencia
+    precio
+    creado
+  }
+}
+
+******OBTENER PRODUCTO********
+query obtenerProducto($id: ID!){
+  obtenerProducto(id: $id){
+    id
+    nombre
+    existencia
+    precio
+    creado
+  }
+}
+
+QUERY VARIABLES
+{
+  "id": 1
+}
+
+******NUEVO PRODUCTO********
+mutation nuevoProducto($input: ProductoInput){
+  nuevoProducto(input:$input){
+    id
+    nombre
+    existencia
+    precio
+    creado
+  }
+}
+
+QUERY VARIABLES
+{
+  "input": {
+    "nombre": "Celular Huawei",
+    "existencia": 20,
+    "precio": 650.35
+  }
+}
+
+******ACTUALIZAR PRODUCTO********
+mutation actualizarProducto( $id: ID!, $input : ProductoInput){
+  actualizarProducto(id:$id, input:$input){
+    id
+    nombre
+    existencia
+    precio
+    creado
+  }
+}
+QUERY VARIABLES
+{
+  "id": 1,
+  "input": {
+    "nombre": "Laptop HP",
+    "existencia": 15,
+    "precio": 1200
+  }
+}
+
+******ELIMINAR PRODUCTO********
+mutation eliminarProducto($id: ID!){
+  eliminarProducto(id:$id)
+}
+
+QUERY VARIABLES
+{
+  "id": 2
+}

@@ -1,0 +1,186 @@
+******NUEVO PEDIDO********
+mutation nuevoPedido($input: PedidoInput){
+  nuevoPedido(input:$input){
+    id
+    pedido{
+      id
+      cantidad
+    }
+    total
+    cliente
+    vendedor
+    creado
+    estado
+  }
+}
+
+QUERY VARIABLES
+{
+  "input": {
+    "pedido": [
+      {"id":1, "cantidad": 5 }
+    ],
+    "total": 100,
+    "cliente": 1,
+    "estado": "PENDIENTE"
+    
+  }
+}
+
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+
+******ACTUALIZAR PEDIDO********
+mutation actualizarPedido($id: ID!, $input: PedidoInput){
+  actualizarPedido(id:$id,input:$input){
+    id
+    pedido{
+      id
+      cantidad
+    }
+    total
+    cliente
+    vendedor
+    estado
+    creado
+  }
+}
+
+QUERY VARIABLES
+{
+  "id": 2,
+  "input": {
+    "pedido": [
+      {"id": 1, "cantidad": 1}
+    ],
+    "total": 500,
+    "cliente": 2,
+    "estado": "COMPLETADO"
+  }
+}
+
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+
+******ELIMINAR PEDIDO********
+mutation eliminarPedido($id: ID!){
+  eliminarPedido(id:$id)
+}
+
+QUERY VARIABLES
+{
+  "id": 2
+}
+
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+
+******OBTENER PEDIDOS********
+query obtenerPedidos{
+  obtenerPedidos{
+    id
+    pedido{
+      id
+      cantidad
+    }
+    total
+    cliente
+    vendedor
+    estado
+    creado
+  }
+}
+
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+******OBTENER PEDIDO********
+query obtenerPedido($id: ID!){
+  obtenerPedido(id:$id){
+    id
+    pedido{
+      id
+      cantidad
+    }
+    total
+    cliente
+    vendedor
+    creado
+    estado
+  }
+}
+
+QUERY VARIABLES
+{
+  "id": 4
+}
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+
+
+******OBTENER PEDIDOS VENDEDOR********
+query obtenerPedidosVendedor{
+  obtenerPedidosVendedor{
+    id
+    pedido{
+      id
+      cantidad
+    }
+    total
+    cliente{
+      id
+      nombre
+      apellido
+      email
+      telefono
+    }
+    vendedor
+    creado
+    estado
+  }
+}
+
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+
+******OBTENER PEDIDOS ESTADO********.
+query obtenerPedidosEstado($estado: String!){
+  obtenerPedidosEstado(estado:$estado){
+    id
+    pedido{
+      id
+      cantidad
+    }
+    total
+    cliente
+    vendedor
+    creado
+    estado
+  }
+}
+
+QUERY VARIABLES
+{
+  "estado": "PENDIENTE"
+}
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}

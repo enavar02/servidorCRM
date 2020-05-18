@@ -1,0 +1,49 @@
+******NUEVO USUARIO********
+
+mutation nuevoUsuario($input: UsuarioInput){
+  nuevoUsuario(input: $input){
+    id
+    nombre
+    apellido
+    email
+    creado
+  }
+}
+
+QUERY VARIABLES
+{
+  "input": {
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "email": "juan@correo.com",
+    "password": "123456"
+  }
+}
+
+
+******AUTENTICAR USUARIO********
+mutation autenticarUsuario($input: AutenticarInput){
+  autenticarUsuario(input: $input){
+    token
+  }
+}
+
+QUERY VARIABLES
+{
+  "input": {
+    "email": "juan@correo.com",
+    "password": "123456"
+  }
+}
+
+******OBTENER USUARIO********
+query obtenerUsuario($token: String!){
+  obtenerUsuario(token: $token){
+    id
+  }
+}
+
+QUERY VARIABLES
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}

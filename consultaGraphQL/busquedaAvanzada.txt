@@ -1,0 +1,65 @@
+******MEJORES CLIENTES********
+query mejoresClientes{
+  mejoresClientes{
+    total
+    cliente{
+      id
+      nombre
+      apellido
+      empresa
+      email
+      telefono
+      vendedor
+      creado
+    }
+  }
+}
+
+
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+
+******MEJORES VENDEDORES********
+query mejorVendedores{
+  mejorVendedores{
+    total
+    vendedor{
+      id
+      nombre
+      apellido
+      email
+      creado
+    }
+  }
+}
+
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
+
+
+
+******BUSCAR PRODUCTO********
+query buscarProducto($texto: String!){
+  buscarProducto(texto:$texto){
+    id
+    nombre
+    existencia
+    precio
+    creado
+  }
+}
+
+QUERY VARIABLES
+{
+  "texto": "laptop"
+}
+
+HTTP HEADERS
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJqdWFuQGNvcnJlby5jb20iLCJub21icmUiOiJKdWFuIiwiYXBlbGxpZG8iOiJQZXJleiIsImlhdCI6MTU4ODQzNzk1MCwiZXhwIjoxNTg4NTI0MzUwfQ.0BH97gcMDPXT25xxljfJk8eLbwwB_iQv8I27kTvdrAU"
+}
