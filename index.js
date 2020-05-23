@@ -3,7 +3,11 @@ const typeDefs = require('./db/schema');
 const resolvers =require('./db/resolvers');
 const mysqlConnection = require('./config/db');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 require('dotenv').config({path: 'variables.env'});
+
+
+
 
 mysqlConnection.query('SELECT * FROM usuarios',(err, rows, fields)=>{
     if(!err){
@@ -37,6 +41,8 @@ const server = new ApolloServer({
     }
 });
 
+//habilitar cors
+server.use(cors());
 
 //arrancar servidor
 const host = process.env.HOST || '0.0.0.0';
