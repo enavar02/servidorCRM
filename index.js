@@ -38,7 +38,21 @@ const server = new ApolloServer({
             }
         }
     },
-    cors: true
+    cors: {
+        credentials: true,
+        origin: (origin, callback) => {
+            const whitelist = [
+                "https://cliente-one.now.sh",
+                'http://localhost:3000'
+            ];
+
+            if (whitelist.indexOf(origin) !== -1) {
+                callback(null, true)
+            } else {
+                callback(new Error("Not allowed by CORS"))
+            }
+        }
+    }
 });
 
 

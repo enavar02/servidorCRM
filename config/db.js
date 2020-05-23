@@ -9,7 +9,7 @@ const mysqlConnection = mysql.createConnection({
     password: process.env.BD_PASS,
     database: process.env.BD_NOMBRE,
     port: process.env.BD_PORT,
-    multipleStatements: true 
+    //multipleStatements: true 
     
 });
 
