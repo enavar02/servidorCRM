@@ -38,20 +38,7 @@ const server = new ApolloServer({
             }
         }
     },
-    cors: {
-        credentials: true,
-        origin: (origin, callback) => {
-            const whitelist = [
-                "https://fathomless-basin-38658.herokuapp.com"
-            ];
-
-            if (whitelist.indexOf(origin) !== -1) {
-                callback(null, true)
-            } else {
-                callback(new Error("Not allowed by CORS"))
-            }
-        }
-    }
+    cors: false
 });
 
 
