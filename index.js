@@ -3,7 +3,6 @@ const typeDefs = require('./db/schema');
 const resolvers =require('./db/resolvers');
 const mysqlConnection = require('./config/db');
 const jwt = require('jsonwebtoken');
-const cors = require('cors');
 require('dotenv').config({path: 'variables.env'});
 
 
@@ -38,11 +37,24 @@ const server = new ApolloServer({
                 console.log(error);
             }
         }
+    },
+    cors: {
+        credentials: true,
+        origin: (origin, callback) => {
+            const whitelist = [
+                "https://fathomless-basin-38658.herokuapp.com"
+            ];
+
+            if (whitelist.indexOf(origin) !== -1) {
+                callback(null, true)
+            } else {
+                callback(new Error("Not allowed by CORS"))
+            }
+        }
     }
 });
 
-//habilitar cors
-server.use(cors());
+
 
 //arrancar servidor
 const host = process.env.HOST || '0.0.0.0';
