@@ -42,7 +42,7 @@ const server = new ApolloServer({
         credentials: true,
         origin: (origin, callback) => {
             const whitelist = [
-                "https://cliente-liart.now.sh",
+                "https://erp-front-next.now.sh/",
                 'http://localhost:3000'
             ];
 
